@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Struktur Atom Interaktif</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #c2e9fb, #a1c4fd);
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #0052cc;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 0;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+    main {
+      padding: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.9);
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #0052cc;
+      border-bottom: 3px solid #0052cc;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+    .quiz {
+      margin-top: 30px;
+      padding: 15px;
+      background: #e6f0ff;
+      border-radius: 10px;
+    }
+    .quiz button {
+      background: #0052cc;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin-top: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .quiz button:hover {
+      background: #003d99;
+    }
+    .interactive-model {
+      margin: 30px auto;
+      text-align: center;
+    }
+    .electron {
+      width: 15px;
+      height: 15px;
+      background: #ff4b5c;
+      border-radius: 50%;
+      position: absolute;
+      animation: orbit 4s linear infinite;
+    }
+    @keyframes orbit {
+      from { transform: rotate(0deg) translateX(80px) rotate(0deg); }
+      to { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
+    }
+    .nucleus {
+      width: 50px;
+      height: 50px;
+      background: gold;
+      border-radius: 50%;
+      margin: 100px auto;
+      position: relative;
+      box-shadow: 0 0 20px gold;
+    }
+    .output {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Materi Interaktif: Struktur Atom</h1>
+  </header>
+  <main>
+    <section>
+      <h2>1. Pengertian Struktur Atom</h2>
+      <p>Struktur atom adalah susunan partikel dasar penyusun atom yaitu proton, neutron, dan elektron. Proton dan neutron terdapat di inti atom (nukleus), sedangkan elektron bergerak mengelilingi inti dalam lintasan tertentu yang disebut kulit atom.</p>
+    </section>
+
+    <section>
+      <h2>2. Partikel Penyusun Atom</h2>
+      <ul>
+        <li><b>Proton (p⁺):</b> bermuatan positif dan berada di dalam inti atom.</li>
+        <li><b>Neutron (n⁰):</b> tidak bermuatan dan juga berada di inti atom.</li>
+        <li><b>Elektron (e⁻):</b> bermuatan negatif dan bergerak mengelilingi inti.</li>
+      </ul>
+    </section>
+
+    <section class="interactive-model">
+      <h2>3. Model Atom Bohr (Interaktif)</h2>
+      <div class="nucleus"></div>
+      <div class="electron"></div>
+      <p>Klik tombol di bawah untuk melihat pergerakan elektron di sekitar inti atom!</p>
+      <button onclick="toggleElectron()">Mulai / Hentikan Elektron</button>
+    </section>
+
+    <section>
+      <h2>4. Teori Perkembangan Model Atom</h2>
+      <ol>
+        <li><b>Dalton (1808):</b> Atom adalah partikel terkecil yang tidak dapat dibagi lagi.</li>
+        <li><b>Thomson (1897):</b> Atom seperti roti kismis, di mana elektron tersebar di seluruh atom.</li>
+        <li><b>Rutherford (1911):</b> Inti atom bermuatan positif dan elektron mengelilinginya.</li>
+        <li><b>Bohr (1913):</b> Elektron bergerak pada lintasan tertentu dengan energi tertentu.</li>
+        <li><b>Model Mekanika Kuantum:</b> Elektron berada dalam orbital, bukan lintasan pasti.</li>
+      </ol>
+    </section>
+
+    <section class="quiz">
+      <h2>5. Kuis Cepat 🔍</h2>
+      <p>Partikel manakah yang <b>tidak bermuatan listrik</b>?</p>
+      <button onclick="checkAnswer('a')">A. Proton</button><br>
+      <button onclick="checkAnswer('b')">B. Neutron</button><br>
+      <button onclick="checkAnswer('c')">C. Elektron</button>
+      <div class="output" id="result"></div>
+    </section>
+  </main>
+
+  <script>
+    let animating = true;
+    const electron = document.querySelector('.electron');
+
+    function toggleElectron() {
+      animating = !animating;
+      electron.style.animationPlayState = animating ? 'running' : 'paused';
+    }
+
+    function checkAnswer(ans) {
+      const result = document.getElementById('result');
+      if (ans === 'b') {
+        result.innerHTML = '✅ Benar! Neutron tidak memiliki muatan listrik.';
+        result.style.color = 'green';
+      } else {
+        result.innerHTML = '❌ Salah! Coba lagi ya.';
+        result.style.color = 'red';
+      }
+    }
+  </script>
+</body>
+</html>
